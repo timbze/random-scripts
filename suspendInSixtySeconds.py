@@ -11,9 +11,9 @@ def suspend_timer():
     if cancelled:
         return
     elif seconds[0] > 0:
-        seconds[0] = (seconds[0]-1)
-
         threading.Timer(1, suspend_timer).start()
+        
+        seconds[0] = (seconds[0]-1)
         window['suspendMessage'].update(get_suspend_message())
     else:
         suspend_now()
